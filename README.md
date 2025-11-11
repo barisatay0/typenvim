@@ -45,6 +45,7 @@ Key mappings are defined in `lua/settings/keymap.lua`.
 Below is a simplified reference:
 
 - **Leader + e**: Show diagnostics
+- **Leader + r**: Show information
 - **Ctrl + Space**: Trigger completion menu
 - **Ctrl + P**: Find files
 - **Leader + fg**: Search in files (live grep)
