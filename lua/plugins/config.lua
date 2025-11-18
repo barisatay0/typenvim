@@ -14,6 +14,7 @@ require("tabline").setup({
         separator = "▏",
     },
 })
+
 vim.cmd("set showtabline=2")
 
 -- Gitsigns setup
@@ -102,3 +103,13 @@ require('telescope').setup({
 
     }
 })
+
+-- Treesitter Setup
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline", "typescript" },
+  sync_install = false,
+  auto_install = true,
+  highlight = {
+    enable = true,
+  },
+}

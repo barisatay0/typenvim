@@ -4,10 +4,11 @@
 -- ! <leader> default is mostly '\' !
 --
 --
+
 -- <leader-e>: Show diagnostic
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 
--- <leader-e>: Show information
+-- <leader-r>: Show information
 vim.keymap.set("n","<leader>r", vim.lsp.buf.hover)
 
 -- <ctrl-space>: Manually trigger completion menu

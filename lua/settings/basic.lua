@@ -11,4 +11,3 @@ vim.opt.mouse = 'a'               -- Enable mouse in all modes
 vim.opt.clipboard = 'unnamedplus' -- Use system clipboard
 vim.opt.wrap = false              -- Disable line wrapping
 vim.opt.colorcolumn = "80"        -- Show line in 80th column
-vim.opt.wrap = false              -- Disable line wrapping

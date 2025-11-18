@@ -28,6 +28,14 @@ require("lazy").setup({
         dependencies = { "nvim-lua/plenary.nvim" }
     },
 
+    -- Treesitter
+    {
+        "nvim-treesitter/nvim-treesitter",
+        branch = 'master',
+        lazy = false,
+        build = ":TSUpdate",
+    },
+
     -- Mason (LSP installer)
     {
         "williamboman/mason.nvim",
