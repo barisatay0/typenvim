@@ -148,34 +148,11 @@ cmp.setup({
             return vim_item
         end
     },
-
-    -- Experimental features
-    experimental = {
-        ghost_text = true,
-    },
 })
 
 -- Set configuration for specific filetype
 cmp.setup.filetype('gitcommit', {
     sources = cmp.config.sources({
         { name = 'buffer' },
-    })
-})
-
--- Use buffer source for `/` and `?` (search completion)
-cmp.setup.cmdline({ '/', '?' }, {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = {
-        { name = 'buffer' }
-    }
-})
-
--- Use cmdline & path source for ':' (command-line completion)
-cmp.setup.cmdline(':', {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-        { name = 'path' }
-    }, {
-        { name = 'cmdline' }
     })
 })
