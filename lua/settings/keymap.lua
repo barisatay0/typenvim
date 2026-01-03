@@ -11,6 +11,13 @@ vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 -- <leader-r>: Show information
 vim.keymap.set("n","<leader>r", vim.lsp.buf.hover)
 
+-- <leader>dp: Go to previous diagnostic
+vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev)
+
+-- <leader>dn: Go to next diagnostic
+vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next)
+
+
 -- <ctrl-space>: Manually trigger completion menu
 vim.keymap.set("i", "<C-Space>", function() require("cmp").complete() end)
 
@@ -47,3 +54,4 @@ vim.keymap.set('n', '<leader>lr', '<cmd>Telescope lsp_references<cr>')
 
 -- <leader-ls>: Find symbols in current document
 vim.keymap.set('n', '<leader>ls', '<cmd>Telescope lsp_document_symbols<cr>')
+
