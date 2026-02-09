@@ -71,11 +71,11 @@ keymap("n", "ts", function() require("neotest").summary.toggle() end, opts)
 -- 4. Git & Other Commands
 -------------------------------------------------------------------------------
 
--- <space>gb: Git Branches
+-- <Leader>gb: Git Branches
 keymap('n', '<leader>gb', function() require("telescope.builtin").git_branches() end, opts)
 
--- <space>gc: Git Commits
+-- <Leader>gc: Git Commits
 keymap('n', '<leader>gc', function() require("telescope.builtin").git_commits() end, opts)
 
--- <space>fh: Find Help
+-- <Leader>fh: Find Help
 keymap('n', '<leader>fh', function() require("telescope.builtin").help_tags() end, opts)
