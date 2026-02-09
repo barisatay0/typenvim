@@ -1,57 +1,83 @@
 -- Key map settings
 --
+-- Philosophy: "No-Leader" workflow. No Alt keys.
 --
--- ! <leader> default is mostly '\' !
+-- [Space] -> Git & Rare actions (Leader)
+-- [\]     -> Testing (Fast access above Enter key)
+-- [g]     -> Go / LSP actions
+-- [C]     -> Control (Search & Navigation)
+-- [[]]    -> Jump (Diagnostics)
 --
---
 
--- <leader-e>: Show diagnostic
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
+local keymap = vim.keymap.set
+local opts = { noremap = true, silent = true }
 
--- <leader-r>: Show information
-vim.keymap.set("n","<leader>r", vim.lsp.buf.hover)
+-------------------------------------------------------------------------------
+-- 1. LSP & Diagnostics (Vim Native / 'g' keys)
+-------------------------------------------------------------------------------
 
--- <leader>dp: Go to previous diagnostic
-vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev)
+-- K: Hover documentation (Standard Vim)
+keymap("n", "K", vim.lsp.buf.hover, opts)
 
--- <leader>dn: Go to next diagnostic
-vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next)
+-- gd: Go Definition
+keymap("n", "gd", vim.lsp.buf.definition, opts)
+
+-- gr: Go References (Telescope)
+keymap("n", "gr", "<cmd>Telescope lsp_references<cr>", opts)
+
+-- gl: Go Line Diagnostic (Show error window)
+keymap("n", "gl", vim.diagnostic.open_float, opts)
+
+-- [d: Previous Diagnostic
+keymap("n", "[d", vim.diagnostic.goto_prev, opts)
+
+-- ]d: Next Diagnostic
+keymap("n", "]d", vim.diagnostic.goto_next, opts)
+
+-- <C-Space>: Manually trigger completion
+keymap("i", "<ft>", function() require("cmp").complete() end, opts)
 
 
--- <ctrl-space>: Manually trigger completion menu
-vim.keymap.set("i", "<C-Space>", function() require("cmp").complete() end)
+-------------------------------------------------------------------------------
+-- 2. Telescope / File Navigation
+-------------------------------------------------------------------------------
 
--- <ctrl-p>: Find files
-vim.keymap.set('n', '<C-p>', '<cmd>Telescope find_files<cr>')
+-- <C-p>: Find files
+keymap('n', '<C-p>', '<cmd>Telescope find_files<cr>', opts)
 
--- <leader-fg>: Live grep (search in file contents)
+-- <C-g>: Live Grep (Search text)
+keymap('n', '<C-g>', '<cmd>Telescope live_grep<cr>', opts)
 
-vim.keymap.set('n', '<leader>fg', '<cmd>Telescope live_grep<cr>')
+-- <C-b>: Find Buffers
+keymap('n', '<C-b>', '<cmd>Telescope buffers<cr>', opts)
 
--- <leader-fb>: Find buffers (search open buffers)
-vim.keymap.set('n', '<leader>fb', '<cmd>Telescope buffers<cr>')
 
--- <leader-fh>: Help tags (search help documentation)
-vim.keymap.set('n', '<leader>fh', '<cmd>Telescope help_tags<cr>')
+-------------------------------------------------------------------------------
+-- 3. Testing (Neotest)
+-------------------------------------------------------------------------------
 
--- <leader-fr>: Recent files (find recently opened files)
-vim.keymap.set('n', '<leader>fr', '<cmd>Telescope oldfiles<cr>')
+-- tr: Run nearest test
+keymap("n", "tr", "<cmd>lua require('neotest').run.run()<cr>", opts)
 
--- <leader-fc>: Commands (search available commands)
-vim.keymap.set('n', '<leader>fc', '<cmd>Telescope commands<cr>')
+-- tf: Run entire file
+keymap("n", "tf", "<cmd>lua require('neotest').run.run({ vim.fn.expand('%') })<cr>", opts)
 
--- <leader-gf>: Fing git files
-vim.keymap.set('n', '<leader>gf', '<cmd>Telescope git_files<cr>')
+-- to: Toggle Output panel
+keymap("n", "to", "<cmd>lua require(\"neotest\").output.open({ enter = true })<cr>", opts)
 
--- <leader-gc>: Browse git commit history
-vim.keymap.set('n', '<leader>gc', '<cmd>Telescope git_commits<cr>')
+-- ts: Toggle Summary panel
+keymap("n", "ts", "<cmd>Neotest summary<cr>", opts)
 
--- <leader-gb>: Switch between git branches
-vim.keymap.set('n', '<leader>gb', '<cmd>Telescope git_branches<cr>')
 
--- <leader-lr>:Find all references to symbol under cursor
-vim.keymap.set('n', '<leader>lr', '<cmd>Telescope lsp_references<cr>')
+-------------------------------------------------------------------------------
+-- 4. Git & Other Commands (Leader / Space)
+-------------------------------------------------------------------------------
 
--- <leader-ls>: Find symbols in current document
-vim.keymap.set('n', '<leader>ls', '<cmd>Telescope lsp_document_symbols<cr>')
+-- <space>gb: Git Branches
+keymap('n', '<leader>gb', '<cmd>Telescope git_branches<cr>', opts)
 
+-- <space>gc: Git Commits
+keymap('n', '<leader>gc', '<cmd>Telescope git_commits<cr>', opts)
+
+-- <space>fh: Find Help
+keymap('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', opts)
