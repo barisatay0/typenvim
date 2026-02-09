@@ -1,7 +1,5 @@
 -- Key map settings
 --
--- Philosophy: "No-Leader" workflow. No Alt keys.
---
 -- [Space] -> Git & Rare actions (Leader)
 -- [\]     -> Testing (Fast access above Enter key)
 -- [g]     -> Go / LSP actions
@@ -16,16 +14,16 @@ local opts = { noremap = true, silent = true }
 -- 1. LSP & Diagnostics (Vim Native / 'g' keys)
 -------------------------------------------------------------------------------
 
--- K: Hover documentation (Standard Vim)
+-- K: Hover documentation
 keymap("n", "K", vim.lsp.buf.hover, opts)
 
 -- gd: Go Definition
 keymap("n", "gd", vim.lsp.buf.definition, opts)
 
--- gr: Go References (Telescope)
-keymap("n", "gr", "<cmd>Telescope lsp_references<cr>", opts)
+-- gr: Go References (Telescope Native Lua Call)
+keymap("n", "gr", function() require("telescope.builtin").lsp_references() end, opts)
 
--- gl: Go Line Diagnostic (Show error window)
+-- gl: Go Line Diagnostic
 keymap("n", "gl", vim.diagnostic.open_float, opts)
 
 -- [d: Previous Diagnostic
@@ -34,8 +32,8 @@ keymap("n", "[d", vim.diagnostic.goto_prev, opts)
 -- ]d: Next Diagnostic
 keymap("n", "]d", vim.diagnostic.goto_next, opts)
 
--- <C-Space>: Manually trigger completion
-keymap("i", "<ft>", function() require("cmp").complete() end, opts)
+-- <C-Space>: Manually trigger completion (Fixed typo <ft> -> <C-Space>)
+keymap("i", "<C-Space>", function() require("cmp").complete() end, opts)
 
 
 -------------------------------------------------------------------------------
@@ -43,13 +41,13 @@ keymap("i", "<ft>", function() require("cmp").complete() end, opts)
 -------------------------------------------------------------------------------
 
 -- <C-p>: Find files
-keymap('n', '<C-p>', '<cmd>Telescope find_files<cr>', opts)
+keymap('n', '<C-p>', function() require("telescope.builtin").find_files() end, opts)
 
--- <C-g>: Live Grep (Search text)
-keymap('n', '<C-g>', '<cmd>Telescope live_grep<cr>', opts)
+-- <C-g>: Live Grep
+keymap('n', '<C-g>', function() require("telescope.builtin").live_grep() end, opts)
 
 -- <C-b>: Find Buffers
-keymap('n', '<C-b>', '<cmd>Telescope buffers<cr>', opts)
+keymap('n', '<C-b>', function() require("telescope.builtin").buffers() end, opts)
 
 
 -------------------------------------------------------------------------------
@@ -57,27 +55,27 @@ keymap('n', '<C-b>', '<cmd>Telescope buffers<cr>', opts)
 -------------------------------------------------------------------------------
 
 -- tr: Run nearest test
-keymap("n", "tr", "<cmd>lua require('neotest').run.run()<cr>", opts)
+keymap("n", "tr", function() require("neotest").run.run() end, opts)
 
 -- tf: Run entire file
-keymap("n", "tf", "<cmd>lua require('neotest').run.run({ vim.fn.expand('%') })<cr>", opts)
+keymap("n", "tf", function() require("neotest").run.run(vim.fn.expand("%")) end, opts)
 
 -- to: Toggle Output panel
-keymap("n", "to", "<cmd>lua require(\"neotest\").output.open({ enter = true })<cr>", opts)
+keymap("n", "to", function() require("neotest").output.open({ enter = true }) end, opts)
 
--- ts: Toggle Summary panel
-keymap("n", "ts", "<cmd>Neotest summary<cr>", opts)
+-- ts: Toggle Summary panel (Fixes the nil value error)
+keymap("n", "ts", function() require("neotest").summary.toggle() end, opts)
 
 
 -------------------------------------------------------------------------------
--- 4. Git & Other Commands (Leader / Space)
+-- 4. Git & Other Commands
 -------------------------------------------------------------------------------
 
 -- <space>gb: Git Branches
-keymap('n', '<leader>gb', '<cmd>Telescope git_branches<cr>', opts)
+keymap('n', '<leader>gb', function() require("telescope.builtin").git_branches() end, opts)
 
 -- <space>gc: Git Commits
-keymap('n', '<leader>gc', '<cmd>Telescope git_commits<cr>', opts)
+keymap('n', '<leader>gc', function() require("telescope.builtin").git_commits() end, opts)
 
 -- <space>fh: Find Help
-keymap('n', '<leader>fh', '<cmd>Telescope help_tags<cr>', opts)
+keymap('n', '<leader>fh', function() require("telescope.builtin").help_tags() end, opts)
