@@ -113,3 +113,22 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
   },
 }
+
+
+-- neotest
+-- -------------------------------------------------------------------
+require("neotest").setup({
+  running = {
+    vitestCommand = 'npx vitest'
+  },
+  adapters = {
+    require("neotest-vitest") {
+      vitestCommand = "npx vitest",
+      -- Filter directories when searching for test files. Useful in large projects (see Filter directories notes).
+      -- filter_dir = function(name, rel_path, root)
+      filter_dir = function(name)
+        return name ~= "node_modules"
+      end,
+    },
+  }
+})
