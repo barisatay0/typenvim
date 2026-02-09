@@ -1,92 +1,106 @@
-# Typenvim
+# ⚡ Speed-Centric Neovim Configuration
 
-This repository provides a Neovim configuration optimized for TypeScript and JavaScript development.  
-It includes language server support, autocompletion, formatting, themes, and productivity plugins.
+A highly optimized, modular Neovim configuration built for speed and muscle memory.
+This setup adopts a **"No-Leader" philosophy** for almost everything:
+* **Tests:** Mapped directly to `t` prefix (overriding standard 'till' motion).
+* **Search:** Mapped to `Ctrl` keys.
+* **LSP:** Mapped to native `g` and `[` keys.
+* **Git/Misc:** Uses the default Leader (`\`).
 
----
+![Neovim](https://img.shields.io/badge/Neovim-v0.9+-57A143?style=for-the-badge&logo=neovim&logoColor=white)
+![Lua](https://img.shields.io/badge/Lua-Config-blue?style=for-the-badge&logo=lua&logoColor=white)
 
-## Features
+## 🧠 Philosophy
 
-### Language Server Protocol (LSP)
+* **Direct Access Testing:** No leader key required for tests. Just press `tr` to run.
+* **Zero-Friction Navigation:** `Ctrl` keys are used for file searching and buffer switching (1 chord vs 2-3 keystrokes).
+* **Native LSP:** Leveraging Vim's native `g` and `[` keys for code intelligence.
+* **Modular Architecture:** Plugins are organized by category using `lazy.nvim`.
 
-- Managed with [mason.nvim](https://github.com/williamboman/mason.nvim).
-- Ensures installation of `lua_ls` and `ts_ls`.
-- [none-ls.nvim](https://github.com/nvimtools/none-ls.nvim) integrated with Prettier for automatic formatting on save.
+## 📋 Prerequisites
 
-### Autocompletion
+Ensure you have the following installed on your system:
 
-- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp) for intelligent completion.
-- [LuaSnip](https://github.com/L3MON4D3/LuaSnip) for snippet expansion.
-- Sources include LSP, snippets, and filesystem paths.
-- Tab and Shift+Tab mapped for navigating suggestions.
+* **Neovim** (>= 0.9.0)
+* **Git**
+* **C Compiler (gcc/clang)** (Required for Treesitter parsers)
+* **Ripgrep** (Required for Telescope `live_grep`)
+* **Node.js & npm** (Required for Mason/LSP servers)
+* **Nerd Font** (Required for icons)
 
-### Plugins
+## 🛠️ Installation
 
-- [lazy.nvim](https://github.com/folke/lazy.nvim) – plugin manager
-- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim) – fuzzy finder and search
-- [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) – status line
-- [tabline.nvim](https://github.com/kdheepak/tabline.nvim) – buffer and tab management
-- [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim) – Git integration
-- [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim) – indentation guides
-- [nightfox.nvim](https://github.com/EdenEast/nightfox.nvim) – color schemes (configured with `carbonfox`)
+1.  **Backup your existing config:**
+    ```bash
+    mv ~/.config/nvim ~/.config/nvim.bak
+    ```
 
-### Editor Settings
+2.  **Clone this repository:**
+    ```bash
+    git clone [https://github.com/YOUR_USERNAME/nvim](https://github.com/YOUR_USERNAME/nvim) ~/.config/nvim
+    ```
 
-- Line numbers enabled
-- Tabs converted to spaces, indent size = 4
-- System clipboard integration
-- True color support
-- Column indicator at 80 characters
-- Line wrapping disabled
+3.  **Start Neovim:**
+    ```bash
+    nvim
+    ```
+    *Lazy.nvim will automatically bootstrap and install all plugins on the first launch.*
 
-### Key Mappings
+## ⌨️ Keymaps (Cheat Sheet)
 
-Key mappings are defined in `lua/settings/keymap.lua`.  
-Below is a simplified reference:
+### 🧪 Testing (Direct `t` Prefix)
+*Fastest possible access. Overrides standard `t` (till) motion.*
 
-- **Leader + e**: Show diagnostics
-- **Leader + r**: Show information
-- **Ctrl + Space**: Trigger completion menu
-- **Ctrl + P**: Find files
-- **Leader + fg**: Search in files (live grep)
-- **Leader + fb**: List open buffers
-- **Leader + fh**: Search help tags
-- **Leader + fr**: Show recent files
-- **Leader + fc**: List available commands
-- **Leader + gf**: Find Git files
-- **Leader + gc**: Show Git commit history
-- **Leader + gb**: Switch Git branches
-- **Leader + lr**: Find references to the current symbol
-- **Leader + ls**: List symbols in the current document
+| Key | Action | Description |
+| :--- | :--- | :--- |
+| `tr` | **Run Nearest** | Run the test under cursor |
+| `tf` | **Run File** | Run all tests in current file |
+| `to` | **Output** | Open test output panel |
+| `ts` | **Summary** | Toggle test summary sidebar |
 
-Note: The `<Leader>` key is `\` by default, unless you set it differently.
+### 🚀 Navigation & Search (Control Keys)
+*Fast access without mode switching.*
 
----
+| Key | Action | Description |
+| :--- | :--- | :--- |
+| `<C-p>` | **Find Files** | Fuzzy find files (Telescope) |
+| `<C-g>` | **Live Grep** | Search text across project |
+| `<C-b>` | **Buffers** | Switch open buffers |
 
-## Installation
+### 🧠 LSP & Code Intelligence (Native Style)
+*Uses Vim's native `g` and `[` keys.*
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/barisatay0/typenvim
-   ```
-2. Copy it into your Neovim configuration directory:
-   ```bash
-   cp -r typenvim/* ../your-config-file/nvim/
-   ```
-3. Start Neovim:
-   ```bash
-   nvim
-   ```
+| Key | Action | Description |
+| :--- | :--- | :--- |
+| `K` | **Hover** | Show documentation under cursor |
+| `gd` | **Go Definition** | Jump to definition |
+| `gr` | **Go References** | Find references (Telescope) |
+| `gl` | **Line Diagnostic** | Show error/warning window |
+| `[d` | **Prev Diagnostic** | Jump to previous error |
+| `]d` | **Next Diagnostic** | Jump to next error |
+| `<C-Space>`| **Completion** | Trigger auto-completion manually |
 
-### Optional Packages
+### 🌳 Git & Misc (Default Leader: `\`)
+*Uses the default Backslash key.*
 
-1. Install prettier as a global
-   ```bash
-    npm install -g prettier
-   ```
+| Key | Action | Description |
+| :--- | :--- | :--- |
+| `\gb` | **Git Branches** | Switch git branches |
+| `\gc` | **Git Commits** | Browse commit history |
+| `\fh` | **Find Help** | Search help tags |
 
-Notes :
+## 📦 Plugin Structure
 
-- Prettier is set as the default formatter for JavaScript, TypeScript, JSON, YAML, Markdown, HTML, CSS, and SCSS.
-- LSP servers are installed automatically via Mason if not already present.
-- Node.js must be installed on your system. Mason will fail to install or run certain language servers (such as ts_ls) if Node.js is missing.
+The configuration follows a modern `lazy.nvim` spec structure:
+
+```text
+lua/
+├── config/
+│   ├── keymaps.lua    # Custom keybindings
+│   ├── options.lua    # vim.opt settings
+│   └── lazy.lua       # Plugin manager bootstrap
+└── plugins/
+    ├── lsp.lua        # Mason, LSPConfig, CMP, Conform
+    ├── editor.lua     # Telescope, Treesitter, Gitsigns
+    ├── ui.lua         # Colorscheme, Lualine, IndentBlankline
+    └── test.lua       # Neotest & Adapters
