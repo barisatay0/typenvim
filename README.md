@@ -37,7 +37,7 @@ Ensure you have the following installed on your system:
 
 2.  **Clone this repository:**
     ```bash
-    git clone [https://github.com/YOUR_USERNAME/nvim](https://github.com/YOUR_USERNAME/nvim) ~/.config/nvim
+    git clone git@github.com:barisatay0/typenvim.git ~/.config/nvim
     ```
 
 3.  **Start Neovim:**
@@ -104,3 +104,12 @@ lua/
     ├── editor.lua     # Telescope, Treesitter, Gitsigns
     ├── ui.lua         # Colorscheme, Lualine, IndentBlankline
     └── test.lua       # Neotest & Adapters
+```
+
+### 🐛 Troubleshooting
+
+If you encounter issues with Treesitter or LSP :
+
+* Update Plugins: :Lazy update
+* Update Parsers: :TSUpdate
+* Check Health: :checkhealth
