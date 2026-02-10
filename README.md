@@ -5,7 +5,7 @@ This setup adopts a **"No-Leader" philosophy** for almost everything:
 * **Tests:** Mapped directly to `t` prefix (overriding standard 'till' motion).
 * **Search:** Mapped to `Ctrl` keys.
 * **LSP:** Mapped to native `g` and `[` keys.
-* **Git/Misc:** Uses the default Leader (`\`).
+* **Git/Misc:** Uses the Leader.
 
 ![Neovim](https://img.shields.io/badge/Neovim-v0.9+-57A143?style=for-the-badge&logo=neovim&logoColor=white)
 ![Lua](https://img.shields.io/badge/Lua-Config-blue?style=for-the-badge&logo=lua&logoColor=white)
@@ -80,8 +80,8 @@ Ensure you have the following installed on your system:
 | `]d` | **Next Diagnostic** | Jump to next error |
 | `<C-Space>`| **Completion** | Trigger auto-completion manually |
 
-### 🌳 Git & Misc (Default Leader: `\`)
-*Uses the default Backslash key.*
+### 🌳 Git & Misc
+*Uses the Leader.*
 
 | Key | Action | Description |
 | :--- | :--- | :--- |
