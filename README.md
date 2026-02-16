@@ -1,7 +1,6 @@
-# ⚡ Speed-Centric Neovim Configuration
+# TypeNvim
 
 A highly optimized, modular Neovim configuration built for speed and muscle memory.
-This setup adopts a **"No-Leader" philosophy** for almost everything:
 * **Tests:** Mapped directly to `t` prefix (overriding standard 'till' motion).
 * **Search:** Mapped to `Ctrl` keys.
 * **LSP:** Mapped to native `g` and `[` keys.
@@ -9,13 +8,6 @@ This setup adopts a **"No-Leader" philosophy** for almost everything:
 
 ![Neovim](https://img.shields.io/badge/Neovim-v0.9+-57A143?style=for-the-badge&logo=neovim&logoColor=white)
 ![Lua](https://img.shields.io/badge/Lua-Config-blue?style=for-the-badge&logo=lua&logoColor=white)
-
-## 🧠 Philosophy
-
-* **Direct Access Testing:** No leader key required for tests. Just press `tr` to run.
-* **Zero-Friction Navigation:** `Ctrl` keys are used for file searching and buffer switching (1 chord vs 2-3 keystrokes).
-* **Native LSP:** Leveraging Vim's native `g` and `[` keys for code intelligence.
-* **Modular Architecture:** Plugins are organized by category using `lazy.nvim`.
 
 ## 📋 Prerequisites
 
