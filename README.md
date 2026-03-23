@@ -38,7 +38,7 @@ Ensure you have the following installed on your system:
     ```
     *Lazy.nvim will automatically bootstrap and install all plugins on the first launch.*
 
-## ⌨️ Keymaps (Cheat Sheet)
+# ⌨️ Keymaps (Cheat Sheet)
 
 ### 🧪 Testing (Direct `t` Prefix)
 *Fastest possible access. Overrides standard `t` (till) motion.*
