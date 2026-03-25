@@ -9,7 +9,7 @@ A highly optimized, modular Neovim configuration built for speed and muscle memo
 ![Neovim](https://img.shields.io/badge/Neovim-v0.9+-57A143?style=for-the-badge&logo=neovim&logoColor=white)
 ![Lua](https://img.shields.io/badge/Lua-Config-blue?style=for-the-badge&logo=lua&logoColor=white)
 
-## 📋 Prerequisites
+## Prerequisites
 
 Ensure you have the following installed on your system:
 
@@ -20,7 +20,7 @@ Ensure you have the following installed on your system:
 * **Node.js & npm** (Required for Mason/LSP servers)
 * **Nerd Font** (Required for icons)
 
-## 🛠️ Installation
+## Installation
 
 1.  **Backup your existing config:**
     ```bash
@@ -38,9 +38,9 @@ Ensure you have the following installed on your system:
     ```
     *Lazy.nvim will automatically bootstrap and install all plugins on the first launch.*
 
-# ⌨️ Keymaps (Cheat Sheet)
+# Keymaps (Cheat Sheet)
 
-### 🧪 Testing (Direct `t` Prefix)
+### Testing (Direct `t` Prefix)
 *Fastest possible access. Overrides standard `t` (till) motion.*
 
 | Key | Action | Description |
@@ -50,7 +50,7 @@ Ensure you have the following installed on your system:
 | `to` | **Output** | Open test output panel |
 | `ts` | **Summary** | Toggle test summary sidebar |
 
-### 🚀 Navigation & Search (Control Keys)
+### Navigation & Search (Control Keys)
 *Fast access without mode switching.*
 
 | Key | Action | Description |
@@ -59,7 +59,7 @@ Ensure you have the following installed on your system:
 | `<C-g>` | **Live Grep** | Search text across project |
 | `<C-b>` | **Buffers** | Switch open buffers |
 
-### 🧠 LSP & Code Intelligence (Native Style)
+### LSP & Code Intelligence (Native Style)
 *Uses Vim's native `g` and `[` keys.*
 
 | Key | Action | Description |
@@ -72,7 +72,7 @@ Ensure you have the following installed on your system:
 | `]d` | **Next Diagnostic** | Jump to next error |
 | `<C-Space>`| **Completion** | Trigger auto-completion manually |
 
-### 🌳 Git & Misc
+### Git & Misc
 *Uses the Leader.*
 
 | Key | Action | Description |
@@ -81,7 +81,7 @@ Ensure you have the following installed on your system:
 | `\gc` | **Git Commits** | Browse commit history |
 | `\fh` | **Find Help** | Search help tags |
 
-## 📦 Plugin Structure
+## Plugin Structure
 
 The configuration follows a modern `lazy.nvim` spec structure:
 
@@ -98,7 +98,7 @@ lua/
     └── test.lua       # Neotest & Adapters
 ```
 
-### 🐛 Troubleshooting
+### Troubleshooting
 
 If you encounter issues with Treesitter or LSP :
 
