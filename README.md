@@ -9,6 +9,8 @@ A highly optimized, modular Neovim configuration built for speed and muscle memo
 ![Neovim](https://img.shields.io/badge/Neovim-v0.9+-57A143?style=for-the-badge&logo=neovim&logoColor=white)
 ![Lua](https://img.shields.io/badge/Lua-Config-blue?style=for-the-badge&logo=lua&logoColor=white)
 
+<img width="938" height="944" alt="Image" src="https://github.com/user-attachments/assets/02239969-fd68-447d-a103-897125ce0926" />
+
 ## Prerequisites
 
 Ensure you have the following installed on your system:
@@ -40,6 +42,7 @@ Ensure you have the following installed on your system:
 
 # Keymaps (Cheat Sheet)
 
+
 ### Testing (Direct `t` Prefix)
 *Fastest possible access. Overrides standard `t` (till) motion.*
 
@@ -53,6 +56,9 @@ Ensure you have the following installed on your system:
 ### Navigation & Search (Control Keys)
 *Fast access without mode switching.*
 
+<img width="938" height="949" alt="Image" src="https://github.com/user-attachments/assets/5dc46547-1619-4e2d-90b4-7d9e4684ee24" />
+
+####
 | Key | Action | Description |
 | :--- | :--- | :--- |
 | `<C-p>` | **Find Files** | Fuzzy find files (Telescope) |
@@ -62,6 +68,9 @@ Ensure you have the following installed on your system:
 ### LSP & Code Intelligence (Native Style)
 *Uses Vim's native `g` and `[` keys.*
 
+<img width="938" height="949" alt="Image" src="https://github.com/user-attachments/assets/891fd134-5fb9-4bdd-a04e-7d9efd10b528" />
+
+#### 
 | Key | Action | Description |
 | :--- | :--- | :--- |
 | `K` | **Hover** | Show documentation under cursor |
