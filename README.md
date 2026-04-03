@@ -1,3 +1,8 @@
+<p align="center">
+  <img src="./typenvim.png" alt="Typenvim Logo" width="300" />
+</p>
+
+
 # TypeNvim
 
 A highly optimized, modular Neovim configuration built for speed and muscle memory.
